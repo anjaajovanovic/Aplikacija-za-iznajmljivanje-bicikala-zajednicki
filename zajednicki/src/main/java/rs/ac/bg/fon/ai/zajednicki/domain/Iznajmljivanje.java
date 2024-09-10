@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Predstavlja iznajmljivanje u sistemu. 
@@ -194,10 +195,10 @@ public class Iznajmljivanje extends AbstractDomainObject {
     /**
      * Postavlja listu stavki iznajmljivanja.
      * 
-     * @param stavkaIznajmljivanja Lista stavki iznajmljivanja.
+     * @param stavke Lista stavki iznajmljivanja.
      */
-    public void setStavkaIznajmljivanja(ArrayList<StavkaIznajmljivanja> stavkaIznajmljivanja) {
-        this.stavkaIznajmljivanja = stavkaIznajmljivanja;
+    public void setStavkaIznajmljivanja(ArrayList<StavkaIznajmljivanja> stavke) {
+        this.stavkaIznajmljivanja = stavke;
     }
     
     /**
