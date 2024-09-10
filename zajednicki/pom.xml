@@ -34,7 +34,6 @@
       <artifactId>junit-jupiter-api</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- Optionally: parameterized tests support -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
@@ -43,7 +42,7 @@
     <dependency>
     	<groupId>org.mockito</groupId>
     	<artifactId>mockito-junit-jupiter</artifactId>
-    	<version>5.3.0</version> <!-- Koristite najnoviju verziju ako je dostupna -->
+    	<version>5.3.0</version>
 		<scope>test</scope>
 	</dependency>
   </dependencies>
