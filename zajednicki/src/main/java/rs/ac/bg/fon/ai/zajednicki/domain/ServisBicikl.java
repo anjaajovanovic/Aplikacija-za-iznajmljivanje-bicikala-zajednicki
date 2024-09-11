@@ -52,10 +52,10 @@ public class ServisBicikl extends AbstractDomainObject {
      * @param cenaServisa Cena servisa u dinarima.
      */
     public ServisBicikl(int id, Date datumServisa, String tipServisa, int cenaServisa) {
-        this.id = id;
-        this.datumServisa = datumServisa;
-        this.tipServisa = tipServisa;
-        this.cenaServisa = cenaServisa;
+        setId(id);
+        setDatumServisa(datumServisa);
+        setTipServisa(tipServisa);
+        setCenaServisa(cenaServisa);
     }
 
     /**
@@ -135,9 +135,16 @@ public class ServisBicikl extends AbstractDomainObject {
     /**
      * Postavlja cenu servisa u dinarima.
      * 
+     * Cena servisa ne moze biti negativna.
+     * 
      * @param cenaServisa Cena servisa.
+     * 
+     * @throws java.lang.IllegalArgumentException ako je cena servisa negativna
      */
     public void setCenaServisa(int cenaServisa) {
+    	if(cenaServisa < 0) 
+    		throw new IllegalArgumentException("Cena servisa ne moze biti negativna.");
+    	
         this.cenaServisa = cenaServisa;
     }
 
