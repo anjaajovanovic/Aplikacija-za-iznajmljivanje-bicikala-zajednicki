@@ -70,12 +70,12 @@ public class Iznajmljivanje extends AbstractDomainObject {
     public Iznajmljivanje(int id, Date datum, double ukupnaCena, 
             Zaposleni zaposleni, Korisnik korisnik, 
             ArrayList<StavkaIznajmljivanja> stavkeIznajmljivanja) {
-        this.id = id;
-        this.datum = datum;
-        this.ukupnaCena = ukupnaCena;
-        this.zaposleni = zaposleni;
-        this.korisnik = korisnik;
-        this.stavkaIznajmljivanja = stavkeIznajmljivanja;
+        setId(id);
+        setDatum(datum);
+        setUkupnaCena(ukupnaCena);
+        setZaposleni(zaposleni);
+        setKorisnik(korisnik);
+        setStavkaIznajmljivanja(stavkeIznajmljivanja);
     }
 
     /**
@@ -131,9 +131,16 @@ public class Iznajmljivanje extends AbstractDomainObject {
     /**
      * Postavlja ukupnu cenu iznajmljivanja.
      * 
+     * Ukupna cena ne sme biti negativna.
+     * 
      * @param ukupnaCena Ukupna cena iznajmljivanja.
+     * 
+     * @throws java.lang.IllegalArgumentException ako je ukupna cena negativna
      */
     public void setUkupnaCena(double ukupnaCena) {
+    	if(ukupnaCena < 0)
+    		throw new IllegalArgumentException("Ukupna cena ne sme biti negativna.");
+    	
         this.ukupnaCena = ukupnaCena;
     }
 
