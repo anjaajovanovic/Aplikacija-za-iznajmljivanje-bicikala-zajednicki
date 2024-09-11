@@ -56,11 +56,11 @@ public class Zaposleni extends AbstractDomainObject {
      * @param password Lozinka zaposlenog.
      */
     public Zaposleni(int id, String ime, String prezime, String username, String password) {
-        this.id = id;
-        this.ime = ime;
-        this.prezime = prezime;
-        this.username = username;
-        this.password = password;
+        setId(id);
+        setIme(ime);
+        setPassword(password);
+        setPrezime(prezime);
+        setUsername(username);
     }
 
     /**
