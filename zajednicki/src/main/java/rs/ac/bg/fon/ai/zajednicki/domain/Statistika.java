@@ -50,10 +50,10 @@ public class Statistika extends AbstractDomainObject {
      * @param bicikl Bicikl koji je ocenjen.
      */
     public Statistika(int id, int ocena, Korisnik korisnik, Bicikl bicikl) {
-        this.id = id;
-        this.ocena = ocena;
-        this.korisnik = korisnik;
-        this.bicikl = bicikl;
+        setId(id);
+        setOcena(ocena);
+        setKorisnik(korisnik);
+        setBicikl(bicikl);
     }
 
     /**
@@ -86,9 +86,16 @@ public class Statistika extends AbstractDomainObject {
     /**
      * Postavlja ocenu koju je korisnik dao biciklu.
      * 
+     * Ocena mora biti u opsegu od 1 do 10.
+     * 
      * @param ocena Ocena bicikla.
+     * 
+     * @throws java.lang.IllegalArgumentException ako je ocena manja od 1 ili veca od 10
      */
     public void setOcena(int ocena) {
+    	if(ocena < 1 || ocena > 10) 
+    		throw new IllegalArgumentException("Ocena mora biti u opsegu od 1 do 10.");
+    	
         this.ocena = ocena;
     }
 
