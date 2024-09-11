@@ -57,11 +57,11 @@ public class StavkaIznajmljivanja extends AbstractDomainObject {
      */
     public StavkaIznajmljivanja(Iznajmljivanje iznajmljivanje, 
             int stavkaRB, int brojSati, double cenaStavke, Bicikl bicikl) {
-        this.iznajmljivanje = iznajmljivanje;
-        this.stavkaRB = stavkaRB;
-        this.brojSati = brojSati;
-        this.cenaStavke = cenaStavke;
-        this.bicikl = bicikl;
+        setIznajmljivanje(iznajmljivanje);
+        setStavkaRB(stavkaRB);
+        setBrojSati(brojSati);
+        setCenaStavke(cenaStavke);
+        setBicikl(bicikl);
     }
 
     /**
@@ -77,6 +77,7 @@ public class StavkaIznajmljivanja extends AbstractDomainObject {
      * Postavlja iznajmljivanje povezano sa ovom stavkom.
      * 
      * @param iznajmljivanje Iznajmljivanje koje treba postaviti.
+     * 
      * @throws NullPointerException Ako je iznajmljivanje null.
      */
     public void setIznajmljivanje(Iznajmljivanje iznajmljivanje) {
@@ -117,9 +118,16 @@ public class StavkaIznajmljivanja extends AbstractDomainObject {
     /**
      * Postavlja broj sati za koje je bicikl iznajmljen.
      * 
+     * Ne moze biti negativan broj.
+     * 
      * @param brojSati Broj sati koji treba postaviti.
+     * 
+     * @throws java.lang.IllegalArgumentException ako je broj sati negativan
      */
     public void setBrojSati(int brojSati) {
+    	if(brojSati < 0)
+    		throw new IllegalArgumentException("Broj sati iznajmljivanja bicikla ne moze biti negativan.");
+    	
         this.brojSati = brojSati;
     }
 
@@ -135,9 +143,16 @@ public class StavkaIznajmljivanja extends AbstractDomainObject {
     /**
      * Postavlja cenu stavke.
      * 
+     * Cena stavke mora biti pozitivna.
+     * 
      * @param cenaStavke Cena stavke koju treba postaviti.
+     * 
+     * @throws java.lang.IllegalArgumentException ako je cena negativna
      */
     public void setCenaStavke(double cenaStavke) {
+    	if(cenaStavke < 0)
+    		throw new IllegalArgumentException("Cena stavke ne moze biti negativna.");
+    	
         this.cenaStavke = cenaStavke;
     }
 
@@ -154,11 +169,13 @@ public class StavkaIznajmljivanja extends AbstractDomainObject {
      * Postavlja bicikl koji je iznajmljen.
      * 
      * @param bicikl Bicikl koji treba postaviti.
+     * 
      * @throws NullPointerException Ako je bicikl null.
      */
     public void setBicikl(Bicikl bicikl) {
     	if(bicikl == null) 
     		throw new NullPointerException("Bicikl ne sme biti null.");
+    	
         this.bicikl = bicikl;
     }
 
