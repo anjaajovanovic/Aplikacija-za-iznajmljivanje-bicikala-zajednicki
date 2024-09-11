@@ -187,11 +187,27 @@ class StavkaIznajmljivanjaTest {
 	    si.setBrojSati(2);
 	    assertEquals(2, si.getBrojSati());
 	}
+	
+	@Test
+	void testSetBrojSatiNegativan() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> si.setBrojSati(-2)	);
+		
+		assertEquals("Broj sati iznajmljivanja bicikla ne moze biti negativan.", e.getMessage() );
+	}
 
 	@Test
 	void testSetCenaStavke() {
 		 si.setCenaStavke(300.0);
 		 assertEquals(300.0, si.getCenaStavke(), 0.01);
+	}
+	
+	@Test
+	void testSetCenaStavkeNegativna() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> si.setCenaStavke(-200.0)	);
+		
+		assertEquals("Cena stavke ne moze biti negativna.", e.getMessage() );
 	}
 
 	@Test

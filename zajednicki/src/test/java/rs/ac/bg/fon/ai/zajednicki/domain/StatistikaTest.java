@@ -64,6 +64,8 @@ class StatistikaTest {
 
 	    Mockito.when(rs.next()).thenReturn(true).thenReturn(false);
 	    
+	    Date expectedDate = new Date(2024,1,1);
+	    
 	    // Statistika
 	    when(rs.getInt("id")).thenReturn(1);
 	    when(rs.getInt("ocena")).thenReturn(4);
@@ -82,7 +84,16 @@ class StatistikaTest {
 	    when(rs.getDouble("cena_po_satu")).thenReturn(200.0);
 	    when(rs.getInt("lokacija")).thenReturn(1);
 	    when(rs.getInt("servis")).thenReturn(1);
-
+	    
+	    //Lokacija
+	    when(rs.getString("naziv_lokacije")).thenReturn("Lokacija1");
+	    when(rs.getString("adresa")).thenReturn("Adresa1");
+	    when(rs.getString("grad")).thenReturn("Grad1");	    
+	    
+	    //Servis
+	    when(rs.getDate("datum_servisa")).thenReturn(expectedDate);
+	    when(rs.getString("tip_servisa")).thenReturn("Servis1");
+	    when(rs.getInt("cena_servisa")).thenReturn(100);
 
 	    ArrayList<AbstractDomainObject> lista = s.getList(rs);
 
@@ -108,6 +119,17 @@ class StatistikaTest {
 	    assertEquals(200.0, stat.getBicikl().getCenaPoSatu());
 	    assertNotNull(stat.getBicikl().getLokacija());
 	    assertNotNull(stat.getBicikl().getServis());
+	    
+	    //Lokacija
+	    assertEquals(1, stat.getBicikl().getLokacija().getId());
+	    assertEquals("Lokacija1", stat.getBicikl().getLokacija().getNaziv());
+	    assertEquals("Adresa1", stat.getBicikl().getLokacija().getAdresa());
+	    assertEquals("Grad1", stat.getBicikl().getLokacija().getGrad());
+	    
+	    //Servis
+	    assertEquals(expectedDate, stat.getBicikl().getServis().getDatumServisa());
+	    assertEquals("Servis1", stat.getBicikl().getServis().getTipServisa());
+	    assertEquals(100, stat.getBicikl().getServis().getCenaServisa());
 	}
 
 	@Test
@@ -164,6 +186,14 @@ class StatistikaTest {
 	void testSetOcena() {
 		s.setOcena(3);
 	    assertEquals(3, s.getOcena());
+	}
+	
+	@Test
+	void testSetOcenaIzvanOpsega() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> s.setOcena(22)	);
+		
+		assertEquals("Ocena mora biti u opsegu od 1 do 10.", e.getMessage() );
 	}
 
 	@Test

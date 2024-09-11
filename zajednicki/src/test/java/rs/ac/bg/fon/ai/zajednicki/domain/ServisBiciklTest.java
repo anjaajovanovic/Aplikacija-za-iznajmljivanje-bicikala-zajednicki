@@ -173,6 +173,14 @@ class ServisBiciklTest {
         assertEquals(1500, servisBicikl.getCenaServisa());
 	}
 	
+	@Test
+	void testSetCenaServisaNegativna() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> servisBicikl.setCenaServisa(-2000)	);
+		
+		assertEquals("Cena servisa ne moze biti negativna.", e.getMessage() );
+	}
+	
 	
 
 	@Test

@@ -207,11 +207,28 @@ class BiciklTest {
 		bicikl.setGodinaProizvodnje(2023);
         assertEquals(2023, bicikl.getGodinaProizvodnje());
 	}
+	
+	@Test
+	void testSetGodinaProizvodnjeIzvanOpsega() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> bicikl.setGodinaProizvodnje(2026)	);
+		
+		assertEquals("Godina proizvodnje nije odgovarajuca.", e.getMessage() );
+	}
+	
 
 	@Test
 	void testSetCenaPoSatu() {
 		bicikl.setCenaPoSatu(200.0);
         assertEquals(200.0, bicikl.getCenaPoSatu());
+	}
+	
+	@Test
+	void testSetCenaPoSatuNegativna() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> bicikl.setCenaPoSatu(-300.0)	);
+		
+		assertEquals("Cena ne moze biti negativna.", e.getMessage() );
 	}
 
 	@Test

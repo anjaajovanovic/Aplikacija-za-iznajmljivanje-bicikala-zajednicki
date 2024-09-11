@@ -62,8 +62,17 @@ class IznajmljivanjeTest {
         when(rs.getInt("id")).thenReturn(1);
         when(rs.getDate("datum")).thenReturn((java.sql.Date) expectedDate);
         when(rs.getDouble("ukupna_cena")).thenReturn(500.0);
-        when(rs.getInt("zaposleni")).thenReturn(2);
-        when(rs.getInt("korisnik")).thenReturn(3);
+        when(rs.getInt("zaposleni")).thenReturn(1);
+        when(rs.getInt("korisnik")).thenReturn(1);
+        
+        //Zaposleni
+	    when(rs.getString("username")).thenReturn("username");
+	    when(rs.getString("password")).thenReturn("password");
+	    
+	    //Korisnik
+        Mockito.when(rs.getString("ime")).thenReturn("Ime");
+        Mockito.when(rs.getString("prezime")).thenReturn("Prezime");
+        Mockito.when(rs.getString("email")).thenReturn("marko.markovic@example.com");
 
         Iznajmljivanje i = new Iznajmljivanje();
         ArrayList<AbstractDomainObject> lista = i.getList(rs);
@@ -76,6 +85,19 @@ class IznajmljivanjeTest {
         assertEquals((java.sql.Date)expectedDate, i1.getDatum());
         assertNotNull(i1.getZaposleni());
         assertNotNull(i1.getKorisnik());
+        
+        //Zaposleni
+        assertEquals(1, i1.getZaposleni().getId());
+	    assertEquals("Ime", i1.getZaposleni().getIme());
+	    assertEquals("Prezime", i1.getZaposleni().getPrezime());
+	    assertEquals("username", i1.getZaposleni().getUsername());
+	    assertEquals("password", i1.getZaposleni().getPassword());
+	    
+	    //Korisnik
+	    assertEquals(1, i1.getKorisnik().getId());
+        assertEquals("Ime", i1.getKorisnik().getIme());
+        assertEquals("Prezime", i1.getKorisnik().getPrezime());
+        assertEquals("marko.markovic@example.com", i1.getKorisnik().getEmail());
         
 	}
 
@@ -172,6 +194,14 @@ class IznajmljivanjeTest {
 	    double ukupnaCena = 2000.0;
 	    i.setUkupnaCena(ukupnaCena);
 	    assertEquals(ukupnaCena, i.getUkupnaCena());
+	}
+	
+	@Test
+	void testSetUkupnaCenaNegativna() {
+		Exception e = assertThrows(java.lang.IllegalArgumentException.class,   
+				() -> i.setUkupnaCena(-200.0)	);
+		
+		assertEquals("Ukupna cena ne sme biti negativna.", e.getMessage() );
 	}
 
 	@Test
