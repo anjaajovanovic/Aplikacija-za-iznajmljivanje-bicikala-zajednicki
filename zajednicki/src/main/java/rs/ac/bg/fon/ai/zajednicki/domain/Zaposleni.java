@@ -15,32 +15,32 @@ import java.util.Objects;
  */
 public class Zaposleni extends AbstractDomainObject {
     
-	/*
+	/**
 	 * Jedinstveni identifikator zaposlenog.
 	 */
     private int id;
     
-    /*
+    /**
      * Ime zaposlenog.
      */
     private String ime;
     
-    /*
+    /**
      * Prezime zaposlenog.
      */
     private String prezime;
     
-    /*
+    /**
      * Korisnicko ime zaposlenog.
      */
     private String username;
     
-    /*
+    /**
      * Lozinka zaposlenog.
      */
     private String password;
 
-    /*
+    /**
      * Ovaj konstruktor inicijalizuje novi objekat Zaposleni.
      */
     public Zaposleni() {

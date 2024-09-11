@@ -15,22 +15,22 @@ import java.util.ArrayList;
  */
 public class Statistika extends AbstractDomainObject {
     
-	/*
+	/**
 	 * Jedinstveni identifikator statistike.
 	 */
     private int id;
     
-    /*
+    /**
      * Ocena koju je korisnik dao biciklu na osnovu iskustva.
      */
     private int ocena;
     
-    /*
+    /**
      * Korisnik koji je dao ocenu.
      */
     private Korisnik korisnik;
     
-    /*
+    /**
      * Bicikl na koji se odnosi ocena.
      */
     private Bicikl bicikl;

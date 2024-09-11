@@ -17,22 +17,22 @@ import java.util.Date;
  */
 public class ServisBicikl extends AbstractDomainObject {
     
-	/*
+	/**
 	 * Jedinstveni identifikator servisa.
 	 */
     private int id;
     
-    /*
+    /**
      * Datum obavljanja servisa.
      */
     private Date datumServisa;
     
-    /*
+    /**
      * Tip servisa kao String.
      */
     private String tipServisa;
     
-    /*
+    /**
      * Cena servisa kao int.
      */
     private int cenaServisa;

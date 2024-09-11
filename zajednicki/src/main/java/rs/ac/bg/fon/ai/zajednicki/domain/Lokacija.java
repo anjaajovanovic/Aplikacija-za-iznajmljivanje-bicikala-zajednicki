@@ -17,17 +17,17 @@ import java.util.Objects;
  */
 public class Lokacija extends AbstractDomainObject {
     
-	/*
+	/**
 	 * Id lokacije kao int.
 	 */
     private int id;
     
-    /*
+    /**
      * Naziv lokacije kao String.
      */
     private String naziv;
     
-    /*
+    /**
      * Adresa lokacije kao String.
      */
     private String adresa;
@@ -37,13 +37,13 @@ public class Lokacija extends AbstractDomainObject {
      */
     private String grad;
 
-    /*
+    /**
      * Pravi nov objekat klase Lokacija.
      */
     public Lokacija() {
     }
 
-    /*
+    /**
      * Pravi novu lokaciju i postavlja id, naziv, adresu i grad na unete vrednosti.
      * 
      * @param id id lokacije kao int
@@ -58,7 +58,7 @@ public class Lokacija extends AbstractDomainObject {
         this.grad = grad;
     }
 
-    /*
+    /**
      * Vraca id lokacije.
      * 
      * @return id lokacije kao int
@@ -67,7 +67,7 @@ public class Lokacija extends AbstractDomainObject {
         return id;
     }
 
-    /*
+    /**
      * Postavlja id lokacije na unetu vrednost.
      * 
      * @param id id lokacije kao int
@@ -76,7 +76,7 @@ public class Lokacija extends AbstractDomainObject {
         this.id = id;
     }
 
-    /*
+    /**
      * Vraca naziv lokacije.
      * 
      * @return naziv lokacije kao String
@@ -85,7 +85,7 @@ public class Lokacija extends AbstractDomainObject {
         return naziv;
     }
 
-    /*
+    /**
      * Postavlja naziv lokacije na unetu vrednost.
      * 
      * Uneti naziv ne sme biti null ili prazan String.
@@ -105,7 +105,7 @@ public class Lokacija extends AbstractDomainObject {
         this.naziv = naziv;
     }
 
-    /*
+    /**
      * Vraca adresu lokacije.
      * 
      * @return adresa lokacije kao String
@@ -114,7 +114,7 @@ public class Lokacija extends AbstractDomainObject {
         return adresa;
     }
 
-    /*
+    /**
      * Postavlja adresu lokacije na unetu vrednost.
      * 
      * Uneta adresa ne sme biti null ili prazan String.
@@ -134,7 +134,7 @@ public class Lokacija extends AbstractDomainObject {
         this.adresa = adresa;
     }
 
-    /*
+    /**
      * Vraca grad u kojem se lokacija nalazi.
      * 
      * @return grad lokacije kao String
@@ -143,7 +143,7 @@ public class Lokacija extends AbstractDomainObject {
         return grad;
     }
 
-    /*
+    /**
      * Postavlja grad lokacije na unetu vrednost.
      * 
      * Uneti grad ne sme biti null ili prazan String.
@@ -163,7 +163,7 @@ public class Lokacija extends AbstractDomainObject {
         this.grad = grad;
     }
 
-    /*
+    /**
      * Vraca tekstualni opis lokacije.
      * 
      * @return String koji predstavlja lokaciju u formatu "Lokacija: naziv, Adresa: adresa, Grad: grad"
@@ -173,7 +173,7 @@ public class Lokacija extends AbstractDomainObject {
         return "Lokacija: " + naziv + ", Adresa: " + adresa + ", Grad: " + grad;
     }
 
-    /*
+    /**
      * Vraca ime tabele u bazi podataka.
      * 
      * @return ime tabele kao String
@@ -183,7 +183,7 @@ public class Lokacija extends AbstractDomainObject {
         return "lokacija";
     }
 
-    /*
+    /**
      * Vraca alias tabele za upotrebu u SQL upitima.
      * 
      * @return alias tabele kao String
@@ -193,7 +193,7 @@ public class Lokacija extends AbstractDomainObject {
         return "l";
     }
 
-    /*
+    /**
      * Vraca deo SQL upita za spajanje tabela. 
      * U ovom slučaju, metoda ne vraca ništa jer nema join operacija za lokaciju.
      * 
@@ -204,7 +204,7 @@ public class Lokacija extends AbstractDomainObject {
         return "";
     }
 
-    /*
+    /**
      * Kreira listu objekata tipa AbstractDomainObject na osnovu podataka iz ResultSet-a.
      * 
      * @param rs ResultSet sa podacima
@@ -227,7 +227,7 @@ public class Lokacija extends AbstractDomainObject {
         return lista;
     }
 
-    /*
+    /**
      * Vraca nazive kolona za SQL upit INSERT.
      * 
      * @return nazivi kolona kao String
@@ -237,7 +237,7 @@ public class Lokacija extends AbstractDomainObject {
         return "naziv_lokacije,adresa,grad";
     }
 
-    /*
+    /**
      * Vraca uslov za primarni ključ u SQL upitima.
      * 
      * @return uslov za primarni ključ kao String
@@ -247,7 +247,7 @@ public class Lokacija extends AbstractDomainObject {
         return "id = " + id;
     }
 
-    /*
+    /**
      * Vraca vrednosti koje će se uneti u SQL upit INSERT.
      * 
      * @return vrednosti za INSERT kao String
@@ -257,7 +257,7 @@ public class Lokacija extends AbstractDomainObject {
         return "'" + naziv + "', '" + adresa + "', '" + grad + "'";
     }
 
-    /*
+    /**
      * Vraca vrednosti koje će se koristiti za SQL upit UPDATE.
      * 
      * @return vrednosti za UPDATE kao String
@@ -267,7 +267,7 @@ public class Lokacija extends AbstractDomainObject {
         return " naziv_lokacije = '" + naziv + "', adresa = '" + adresa + "', grad = '" + grad + "'";
     }
 
-    /*
+    /**
      * Vraca uslov za WHERE klauzulu SQL upita.
      * 
      * U ovom slučaju, ne postoji specifičan uslov, pa metoda vraća prazan String.
@@ -279,7 +279,7 @@ public class Lokacija extends AbstractDomainObject {
         return "";
     }
 
-    /*
+    /**
      * Generiše hash kod na osnovu id lokacije.
      * 
      * @return hash kod kao int
@@ -289,7 +289,7 @@ public class Lokacija extends AbstractDomainObject {
 		return Objects.hash(id);
 	}
 
-	/*
+	/**
 	 * Poredi dva objekta klase Lokacija na osnovu id-a.
 	 * 
 	 * @param obj objekat koji se poredi

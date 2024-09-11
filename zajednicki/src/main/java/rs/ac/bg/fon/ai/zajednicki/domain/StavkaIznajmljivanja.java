@@ -15,27 +15,27 @@ import java.util.ArrayList;
  */
 public class StavkaIznajmljivanja extends AbstractDomainObject {
     
-	/*
+	/**
 	 * Predstavlja iznajmljivanje kojem ova stavka pripada.
 	 */
     private Iznajmljivanje iznajmljivanje;
     
-    /*
+    /**
      * Redni broj stavke u okviru iznajmljivanja.
      */
     private int stavkaRB;
     
-    /*
+    /**
      * Broj sati tokom kojih je bicikl bio iznajmljen.
      */
     private int brojSati;
     
-    /*
+    /**
      * Cena stavke iznajmljivanja.
      */
     private double cenaStavke;
     
-    /*
+    /**
      * Bicikl koji je iznajmljen u okviru stavke.
      */
     private Bicikl bicikl;

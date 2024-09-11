@@ -16,48 +16,48 @@ import java.util.ArrayList;
  */
 public class Bicikl extends AbstractDomainObject {
     
-	/*
+	/**
 	 * Id bicikla kao int.
 	 */
     private int id;
     
-    /*
+    /**
      * Naziv bicikla kao String.
      */
     private String naziv;
     
-    /*
+    /**
      * Model bicikla kao String.
      */
     private String model;
     
-    /*
+    /**
      * Godina proizvodnje bicikla kao int.
      */
     private int godinaProizvodnje;
     
-    /*
+    /**
      * Cena iznajmljivanja bicikla po satu kao double.
      */
     private double cenaPoSatu;
     
-    /*
+    /**
      * Lokacija na kojoj se nalazi bicikl.
      */
     private Lokacija lokacija;
     
-    /*
+    /**
      * Servis koji je odradjen na bicikli.
      */
     private ServisBicikl servis;
 
-    /*
+    /**
      * Pravi nov objekat klase Bicikl.
      */
     public Bicikl() {
     }
 
-    /*
+    /**
      * Pravi novi bicikl i postavlja id, naziv, model, godinu proizvodnje, cenu po satu, lokaciju i servis na unete vrednosti.
      * 
      * @param id id bicikla kao String
@@ -79,7 +79,7 @@ public class Bicikl extends AbstractDomainObject {
         this.servis = servis;
     }
 
-    /*
+    /**
      * Vraca id bicikla
      * 
      * @return id bicikla kao int
@@ -88,7 +88,7 @@ public class Bicikl extends AbstractDomainObject {
         return id;
     }
 
-    /*
+    /**
      * Postavlja id bicikla na unetu vredost.
      * 
      * @param id id bicikla kao int
@@ -97,7 +97,7 @@ public class Bicikl extends AbstractDomainObject {
         this.id = id;
     }
 
-    /*
+    /**
      * Vraca naziv bicikla kao String.
      * 
      * @return naziv bicikla kao String.
@@ -106,7 +106,7 @@ public class Bicikl extends AbstractDomainObject {
         return naziv;
     }
 
-    /*
+    /**
      * Postavlja naziv bicikla na unetu vrednost.
      * 
      * Uneti naziv ne sme biti null ili prazan String.
@@ -127,7 +127,7 @@ public class Bicikl extends AbstractDomainObject {
         this.naziv = naziv;
     }
 
-    /*
+    /**
      * Vraca model bicikla kao String.
      * 
      * @return model bicikla kao String
@@ -136,7 +136,7 @@ public class Bicikl extends AbstractDomainObject {
         return model;
     }
 
-    /*
+    /**
      * Postavlja model bicikla na unetu vrednost.
      * 
      * Uneti model ne sme biti null ili prazan String.
@@ -157,7 +157,7 @@ public class Bicikl extends AbstractDomainObject {
         this.model = model;
     }
 
-    /*
+    /**
      * Vraca godinu proizvodnje bicikla.
      * 
      * @return godina proizvodnje bicikla kao int
@@ -166,7 +166,7 @@ public class Bicikl extends AbstractDomainObject {
         return godinaProizvodnje;
     }
 
-    /*
+    /**
      * Postavlja godinu proizvodnje bicikla na unetu vrednost.
      * 
      * @param godinaProizvodnje godina proizvodnje bicikla kao int
@@ -175,7 +175,7 @@ public class Bicikl extends AbstractDomainObject {
         this.godinaProizvodnje = godinaProizvodnje;
     }
 
-    /*
+    /**
      * Vraca cenu iznajmljivanja bicikla po satu kao double.
      * 
      * @return cena iznajmljivanja bicikla po satu
@@ -184,7 +184,7 @@ public class Bicikl extends AbstractDomainObject {
         return cenaPoSatu;
     }
 
-    /*
+    /**
      * Postavlja cenu jednog sata iznajmljivanja bicikla na unetu vrednost.
      * 
      * @param cenaPoSatu cena po satu kao double
@@ -193,7 +193,7 @@ public class Bicikl extends AbstractDomainObject {
         this.cenaPoSatu = cenaPoSatu;
     }
 
-    /*
+    /**
      * Vraca lokaciju na kojoj se nalazi bicikl kao objekat klase Lokacija.
      * 
      * @return lokacija lokacija bicikla kao objekat klase Lokacija
@@ -202,7 +202,7 @@ public class Bicikl extends AbstractDomainObject {
         return lokacija;
     }
 
-    /*
+    /**
      * Postavlja lokaciju bicikla na unetu vrednost.
      * 
      * Lokacija ne sme biti null.
@@ -219,7 +219,7 @@ public class Bicikl extends AbstractDomainObject {
         this.lokacija = lokacija;
     }
 
-    /*
+    /**
      * Vraca servis koji je odradjen na biciklu kao objekat klase ServisBicikl.
      * 
      * @return servis servis bicikle kao objekat klase ServisBicikl
@@ -228,7 +228,7 @@ public class Bicikl extends AbstractDomainObject {
         return servis;
     }
 
-    /*
+    /**
      * Postavlja servis bicikle na unetu vrednost.
      * 
      * @param servis servis bicikle kao objekat klase ServisBicikl
@@ -237,12 +237,17 @@ public class Bicikl extends AbstractDomainObject {
         this.servis = servis;
     }
 
+    /**
+     * Vraca tekstualni opis bicikla.
+     * 
+     * @return String koji predstavlja bicikl.
+     */
     @Override
     public String toString() {
         return "Bicikl: " + naziv + " " + model + ", Godina proizvodnje: " + godinaProizvodnje + ", Cena po satu: " + cenaPoSatu + ", " + lokacija + ", " + servis;
     }
     
-    /*
+    /**
      * Vraca naziv tabele u bazi podataka za entitet Bicikl.
      * 
      * @return naziv tabele kao String.
@@ -252,7 +257,7 @@ public class Bicikl extends AbstractDomainObject {
         return "bicikl";
     }
 
-    /*
+    /**
      * Vraca alias koji se koristi za tabelu bicikla u SQL upitima.
      * 
      * @return alias za tabelu bicikl kao String.
@@ -262,7 +267,7 @@ public class Bicikl extends AbstractDomainObject {
         return "b";
     }
 
-    /*
+    /**
      * Vraca SQL JOIN izraz koji se koristi za povezivanje tabele bicikla sa tabelama lokacija i servis.
      * 
      * @return SQL JOIN izraz kao String.
@@ -273,7 +278,7 @@ public class Bicikl extends AbstractDomainObject {
                 + "JOIN servisBicikl sb ON (sb.id = b.servis)";
     }
 
-    /*
+    /**
      * Kreira listu objekata klase Bicikl na osnovu podataka iz ResultSet-a.
      * 
      * @param rs ResultSet sa podacima iz baze.
@@ -311,7 +316,7 @@ public class Bicikl extends AbstractDomainObject {
         return lista;
     }
 
-    /*
+    /**
      * Vraca nazive kolona koje se koriste prilikom INSERT operacije u bazu podataka.
      * 
      * @return nazivi kolona kao String, u ovom slucaju "naziv,model,godina_proizvodnje,cena_po_satu,lokacija,servis".
@@ -321,7 +326,7 @@ public class Bicikl extends AbstractDomainObject {
         return "naziv,model,godina_proizvodnje,cena_po_satu,lokacija,servis";
     }
 
-    /*
+    /**
      * Vraca uslov koji definixe primarni kljuc za identifikaciju bicikla u bazi podataka.
      * 
      * @return uslov za primarni kljuc kao String.
@@ -331,7 +336,7 @@ public class Bicikl extends AbstractDomainObject {
         return "id = " + id;
     }
 
-    /*
+    /**
      * Vraca vrednosti koje će biti ubacene u bazu podataka prilikom INSERT operacije.
      * 
      * @return vrednosti za insert kao String.
@@ -341,7 +346,7 @@ public class Bicikl extends AbstractDomainObject {
         return "'" + naziv + "', '" + model +"', " + godinaProizvodnje + ", " + cenaPoSatu + ", " + lokacija.getId() + ", " + servis.getId();
     }
 
-    /*
+    /**
      * Vraca vrednosti koje će biti azurirane u bazi podataka prilikom UPDATE operacije.
      * 
      * @return vrednosti za update kao String.
@@ -353,7 +358,7 @@ public class Bicikl extends AbstractDomainObject {
                 ", lokacija = " + lokacija.getId() + ", servis = " + servis.getId();
     }
 
-    /*
+    /**
      * Vraca dodatne uslove koji se mogu koristiti u SQL upitima, trenutno vraca prazan string.
      * 
      * @return uslov kao String.
