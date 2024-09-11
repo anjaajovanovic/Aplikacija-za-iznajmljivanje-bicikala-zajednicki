@@ -52,10 +52,10 @@ public class Lokacija extends AbstractDomainObject {
      * @param grad lokacije kao String
      */
     public Lokacija(int id, String naziv, String adresa, String grad) {
-        this.id = id;
-        this.naziv = naziv;
-        this.adresa = adresa;
-        this.grad = grad;
+        setId(id);
+        setNaziv(naziv);
+        setAdresa(adresa);
+        setGrad(grad);
     }
 
     /**
