@@ -54,10 +54,10 @@ public class Korisnik extends AbstractDomainObject {
      * @param email Email adresa korisnika kao String
      */
     public Korisnik(int id, String ime, String prezime, String email) {
-        this.id = id;
-        this.ime = ime;
-        this.prezime = prezime;
-        this.email = email;
+        setId(id);
+        setIme(ime);
+        setPrezime(prezime);
+        setEmail(email);
     }
 
     /**
