@@ -7,6 +7,7 @@ package rs.ac.bg.fon.ai.zajednicki.domain;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * 
@@ -70,13 +71,13 @@ public class Bicikl extends AbstractDomainObject {
      * 
      */
     public Bicikl(int id, String naziv, String model, int godinaProizvodnje, double cenaPoSatu, Lokacija lokacija, ServisBicikl servis) {
-        this.id = id;
-        this.naziv = naziv;
-        this.model = model;
-        this.godinaProizvodnje = godinaProizvodnje;
-        this.cenaPoSatu = cenaPoSatu;
-        this.lokacija = lokacija;
-        this.servis = servis;
+        setId(id);
+        setNaziv(naziv);
+        setModel(model);
+        setGodinaProizvodnje(godinaProizvodnje);
+        setCenaPoSatu(cenaPoSatu);
+        setLokacija(lokacija);
+        setServis(servis);
     }
 
     /**
@@ -169,9 +170,16 @@ public class Bicikl extends AbstractDomainObject {
     /**
      * Postavlja godinu proizvodnje bicikla na unetu vrednost.
      * 
+     * Godina proizvodnje bicikla mora biti izmedju 1950 i 2024.
+     * 
      * @param godinaProizvodnje godina proizvodnje bicikla kao int
+     * 
+     * @throws java.lang.IllegalArgumentException ako je godina proizvodnje manja od 1950 ili veca od 2024
      */
     public void setGodinaProizvodnje(int godinaProizvodnje) {
+    	if(godinaProizvodnje < 1950 || godinaProizvodnje > 2024) 
+    		throw new IllegalArgumentException("Godina proizvodnje nije odgovarajuca.");
+    		
         this.godinaProizvodnje = godinaProizvodnje;
     }
 
@@ -187,9 +195,16 @@ public class Bicikl extends AbstractDomainObject {
     /**
      * Postavlja cenu jednog sata iznajmljivanja bicikla na unetu vrednost.
      * 
+     * Cena ne moze biti negativna.
+     * 
      * @param cenaPoSatu cena po satu kao double
+     * 
+     * @throws java.lang.IllegalArgumentException ako je cena negativna
      */
     public void setCenaPoSatu(double cenaPoSatu) {
+    	if(cenaPoSatu < 0)
+    		throw new IllegalArgumentException("Cena ne moze biti negativna.");
+    	
         this.cenaPoSatu = cenaPoSatu;
     }
 
